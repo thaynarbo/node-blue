@@ -1,4 +1,6 @@
+const url = require('url');
 // buscando o objeto express
+
 const express = require('express');
 // a constante router está recebendo uma função
 const router = express.Router();
