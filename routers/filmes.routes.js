@@ -1,4 +1,3 @@
-const url = require('url');
 // buscando o objeto express
 
 const express = require('express');
@@ -22,18 +21,14 @@ router.post('/add', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-	const pathName = req.url;
-	console.log(pathName);
-	if (pathName === '/' || pathName === '/overview') {
-		await Filme.find({})
-			.then((filme) => {
-				res.status(200).send(filme);
-			})
-			.catch((err) => {
-				res.status(400).send('Envio com problemas');
-				console.log(err);
-			});
-	}
+	await Filme.find({})
+		.then((filme) => {
+			res.status(200).send(filme);
+		})
+		.catch((err) => {
+			res.status(400).send('Envio com problemas');
+			console.log(err);
+		});
 });
 
 router.get('/findById/:name', async (req, res) => {
