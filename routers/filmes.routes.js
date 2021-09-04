@@ -23,6 +23,7 @@ router.post('/add', async (req, res) => {
 
 router.get('/', async (req, res) => {
 	const pathName = req.url;
+	console.log(pathName);
 	if (pathName === '/' || pathName === '/overview') {
 		await Filme.find({})
 			.then((filme) => {
